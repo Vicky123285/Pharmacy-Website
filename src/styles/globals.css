@@ -2,14 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global Styles */
 body {
-  @apply font-sans bg-gray-50 text-gray-900;
+  @apply font-sans bg-gradient-to-b from-blue-50 to-blue-100 text-gray-900;
 }
 
-h1 {
-  @apply text-3xl sm:text-4xl font-bold;
+/* Navbar */
+header {
+  @apply flex justify-between items-center p-4 bg-white shadow-md sticky top-0 z-50 transition-all duration-300;
 }
 
-button {
-  @apply transition-transform transform hover:scale-105;
+nav a {
+  @apply text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium text-lg;
+}
+
+/* Hero Section */
+.hero {
+  @apply text-center py-16 bg-gradient-to-r from-blue-500 to-indigo-600 text-white;
+}
+
+.hero h1 {
+  @apply text-5xl font-extrabold mb-4 animate-fadeIn;
+}
+
+.hero p {
+  @apply text-lg max-w-lg mx-auto opacity-90;
+}
+
+.hero .btn {
+  @apply mt-6 px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg shadow-lg hover:scale-105 transition-transform duration-200;
+}
+
+/* Search Bar */
+.search-bar {
+  @apply w-full p-3 pl-10 border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400;
+}
+
+/* Category Buttons */
+.category-button {
+  @apply px-4 py-2 rounded-lg shadow-md transition-all duration-300;
+}
+
+.category-button.active {
+  @apply bg-blue-500 text-white;
+}
+
+.category-button:hover {
+  @apply bg-blue-500 text-white scale-105;
+}
+
+/* Product Cards */
+.product-card {
+  @apply p-4 text-center bg-white shadow-lg rounded-lg hover:shadow-xl transition-all duration-300;
+}
+
+.product-card img {
+  @apply w-full h-36 object-cover mb-3 rounded-lg transform hover:scale-105 transition-transform duration-300;
+}
+
+.product-card h2 {
+  @apply text-lg font-semibold text-gray-800;
+}
+
+.product-card p {
+  @apply text-gray-600;
+}
+
+.product-card .add-to-cart {
+  @apply mt-3 w-full bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all duration-300;
+}
+
+/* Floating Cart Icon */
+.cart-icon {
+  @apply fixed bottom-6 right-6 bg-blue-500 p-4 rounded-full text-white shadow-lg cursor-pointer flex items-center space-x-2 hover:bg-blue-600 transition-all duration-300;
+}
+
+/* Footer */
+footer {
+  @apply mt-12 bg-gray-800 text-white text-center py-6 text-sm;
 }
