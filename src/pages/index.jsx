@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Search, ShoppingCart } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Cart from "./pages/cart";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Card from "@/components/ui/card";
@@ -24,8 +23,40 @@ export default function Home() {
   const addToCart = (product) => setCart([...cart, product]);
 
   return (
-    <div className="bg-gray-50 min-h-screen flex flex-col items-center">
-      <Header />
+    <div className="bg-gray-100 min-h-screen flex flex-col items-center text-center">
+      {/* Company Title */}
+      <div className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-4">
+        <h1 className="text-3xl font-bold">Glow&Fit</h1>
+        <p className="text-lg">Your ultimate destination for beauty and fitness essentials.</p>
+      </div>
+
+      {/* Navbar */}
+      <nav className="w-full bg-white shadow-md py-4 px-6 flex justify-between items-center">
+        <div className="flex space-x-4">
+          <Button asChild>
+            <Link href="/">Home</Link>
+          </Button>
+          <Button asChild>
+            <Link href="/products">Products</Link>
+          </Button>
+          <Button asChild>
+            <Link href="/about">About</Link>
+          </Button>
+          <Button asChild>
+            <Link href="/contact">Contact</Link>
+          </Button>
+        </div>
+
+        {/* Fixing Login & Signup Links */}
+        <div className="flex space-x-4">
+          <Link href="/auth/login">
+            <Button className="bg-green-500 hover:bg-green-600 text-white">Login</Button>
+          </Link>
+          <Link href="/auth/signup">
+            <Button className="bg-blue-500 hover:bg-blue-600 text-white">Signup</Button>
+          </Link>
+        </div>
+      </nav>
 
       {/* Search & Categories */}
       <div className="max-w-4xl w-full mt-10 px-6">
@@ -49,7 +80,7 @@ export default function Home() {
       </div>
 
       {/* Products Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mt-10 px-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-7xl mx-auto mt-10 px-6">
         {products
           .filter(
             (product) =>
